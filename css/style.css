@@ -628,6 +628,12 @@ body {
     background-image: url(../img/venue-info-bg.jpg);
     background-size: cover;
     color: #Fff;
+    height: 100%;
+}
+@media (max-width: 991px) {
+    .venue .img {
+        height: 55vh;
+    }
 }
 .venue .img::after {
     content: '';
@@ -1162,6 +1168,11 @@ body {
 .contact .box:nth-child(2) {
     border-right: 1px solid rgb(175, 172, 172);
 }
+@media (max-width: 991px) {
+    .contact .box:nth-child(1) {
+        border: none;
+    }
+}
 .contact a:hover {
     color: var(--main-Color);
     transition: var(--main-Transition);
@@ -1170,7 +1181,7 @@ body {
     -ms-transition: var(--main-Transition);
     -o-transition: var(--main-Transition);
 }
-.contact .row div {
+.contact form .row div {
     width: calc(50% - 5px);
 }
 .contact input, 
