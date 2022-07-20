@@ -28,6 +28,73 @@ $(".header ul a").click(function (e) {
     $(".header-overly").remove()
 })
 
+// Setting Box Section 
+let settingBox = document.querySelector(".setting-box")
+let settingIcon = document.querySelector(".setting-box .icon")
+
+
+settingIcon.addEventListener("click", function () {
+    this.classList.toggle("active")
+    settingBox.classList.toggle("active")
+})
+
+let mainColor = localStorage.getItem("color-option")
+
+if (mainColor !== null) {
+    document.documentElement.style.setProperty("--main-Color", mainColor)
+    document.querySelectorAll(".colors li").forEach((element) => {
+        element.classList.remove("active")
+        if (element.dataset.color === mainColor) {
+            element.classList.add("active")
+        }
+    })
+}
+
+let colorLi = document.querySelectorAll(".setting-box .colors li")
+
+colorLi.forEach((li) => {
+    li.addEventListener("click", (e) => {
+        document.documentElement.style.setProperty("--main-Color", e.target.dataset.color)
+        localStorage.setItem("color-option", e.target.dataset.color)
+        e.target.parentElement.querySelectorAll(".active").forEach((el) => {
+                el.classList.remove("active")
+            })
+            e.target.classList.add("active")
+    })
+})
+
+let mainTheme = localStorage.getItem("theme-option")
+
+let themeSpan = document.querySelectorAll(".setting-box .theme span")
+
+if (mainTheme !== null) {
+    document.body.style.background = localStorage.getItem("theme-option")
+    document.querySelectorAll(".setting-box .theme span").forEach((element) => {
+        element.classList.remove("active")
+        if (element.dataset.background === mainTheme) {
+            element.classList.add("active")
+        }
+    })
+}
+
+themeSpan.forEach((span) => {
+    span.addEventListener("click", function (e) {
+        themeSpan.forEach((span) => {
+            span.classList.remove("active")
+        })
+        e.target.classList.add("active")
+        document.body.style.background = e.target.dataset.background
+        localStorage.setItem("theme-option", e.target.dataset.background)
+    })
+})
+
+let settingBoxButton = document.querySelector(".setting-box .option button")
+
+settingBoxButton.addEventListener("click", function () {
+    localStorage.removeItem("color-option")
+    localStorage.removeItem("theme-option")
+    window.location.reload()
+})
 // Schedule Section 
 
 let scheduleSpan = document.querySelectorAll(".schedule .head span")

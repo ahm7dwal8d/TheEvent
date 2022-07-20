@@ -344,6 +344,112 @@ body {
     -o-transition: var(--main-Transition);
 }
 /* End Landing */
+/* Start Setting Box  */
+.setting-box {
+    position: fixed;
+    top: 80px;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 10;
+    transition: var(--main-Transition);
+    -webkit-transition: var(--main-Transition);
+    -moz-transition: var(--main-Transition);
+    -ms-transition: var(--main-Transition);
+    -o-transition: var(--main-Transition);
+}
+.setting-box.active {
+    left: 0;
+}
+.setting-box .icon {
+    position: absolute;
+    top: 60px;
+    right: -36px;
+    background: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+.setting-box .icon.active svg {
+    animation: rounded 1s linear infinite;
+    -webkit-animation: rounded 1s linear infinite;
+}
+.setting-box .container {
+    padding: 10px;
+}
+.setting-box h5 {
+    font-weight: bold;
+}
+.setting-box ul {
+    display: flex;
+}
+.setting-box li {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--main-Transition);
+    -webkit-transition: var(--main-Transition);
+    -moz-transition: var(--main-Transition);
+    -ms-transition: var(--main-Transition);
+    -o-transition: var(--main-Transition);
+}
+.setting-box li.active {
+    border: 2px solid #eee;
+}
+.setting-box .option {
+    text-transform: capitalize;
+    background: #eee;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+    margin: 10px;
+}
+.setting-box .colors ul li:first-child {
+    background-color: #f82249;
+}
+.setting-box .colors li:nth-child(2) {
+    background-color: #084298;
+}
+.setting-box .colors li:nth-child(3) {
+    background-color: #f44336;
+}
+.setting-box .colors li:nth-child(4) {
+    background-color: #ff9800;
+}
+.setting-box .colors li:nth-child(5) {
+    background-color: #dc3545;
+}
+.setting-box .theme span {
+    background: var(--main-Color);
+    padding: 5px;
+    width: 65px;
+    display: inline-block;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px 0;
+    opacity: 0.6;
+}
+.setting-box .theme span.active {
+    opacity: 1;
+    transition: var(--main-Transition);
+    -webkit-transition: var(--main-Transition);
+    -moz-transition: var(--main-Transition);
+    -ms-transition: var(--main-Transition);
+    -o-transition: var(--main-Transition);
+}
+.setting-box button {
+    background: #f82249;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: bold;
+    width: 180px;
+    padding: 5px;
+    border: none;
+}
+/* End Setting Box  */
 /* Start About  */
 .about {
     position: relative;
@@ -1218,6 +1324,15 @@ span.up.active {
         opacity: 1;
     }
 }
+@keyframes rounded {
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+}
+}
 @keyframes bigger {
     50% {
         font-size: 200px;
@@ -1225,11 +1340,6 @@ span.up.active {
     100% {
         font-size: 200px;
         opacity: 0;
-    }
-}
-@keyframes shadow {
-    100% {
-        box-shadow: 1px solid #fff;
     }
 }
 /* End Animation  */
